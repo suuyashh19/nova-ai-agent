@@ -1,17 +1,5 @@
-
-import {
-  ServerOptions,
-  cli,
-  defineAgent,
-  inference,
-  voice,
-} from '@livekit/agents';
-
-import {
-  EnhancerModel,
-  audioEnhancement,
-} from '@livekit/plugins-ai-coustics';
-
+import { ServerOptions, cli, defineAgent, inference, voice } from '@livekit/agents';
+import { EnhancerModel, audioEnhancement } from '@livekit/plugins-ai-coustics';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'node:url';
 import { createAgent } from './agent.ts';
@@ -77,8 +65,7 @@ export default defineAgent({
 
     // Greet the user
     session.generateReply({
-      instructions:
-        'Greet the user as Nova AI in a friendly, concise way.',
+      instructions: 'Greet the user as Nova AI in a friendly, concise way.',
     });
   },
 });

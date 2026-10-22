@@ -1,4 +1,3 @@
-
 import { Agent, dedent, inference } from '@livekit/agents';
 
 export function createAgent() {
@@ -29,8 +28,8 @@ export function createAgent() {
       - Protect personal information and follow safe, lawful practices.
     `,
 
-   llm: new inference.LLM({
-  model: 'deepseek-ai/deepseek-v4.1-flash',
-}),
+    llm: new inference.LLM({
+      model: 'deepseek-ai/deepseek-v4.1-flash',
+    }),
   });
 }

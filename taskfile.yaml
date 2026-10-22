@@ -1,14 +1,14 @@
-version: "3"
-dotenv: [".env.local"]
+version: '3'
+dotenv: ['.env.local']
 vars:
   INDENT: 4
-  REL_PATH: "{{ relPath .USER_WORKING_DIR .ROOT_DIR }}"
-  VENV_DIR: ".venv"
+  REL_PATH: '{{ relPath .USER_WORKING_DIR .ROOT_DIR }}'
+  VENV_DIR: '.venv'
   NODE_MAIN: '{{ joinPath "./src" "main.ts" }}'
 
 tasks:
   post_create:
-    desc: "Runs after this template is instantiated as a Sandbox or Bootstrap"
+    desc: 'Runs after this template is instantiated as a Sandbox or Bootstrap'
     cmds:
       - echo 'Your agent has been created!'
       - echo 'To run the new agent locally:'
@@ -26,7 +26,7 @@ tasks:
       - task: help_open_sandbox_if_present
 
   help_install_hint_if_needed:
-    desc: "Print the local install hint, unless the CLI already installed dependencies"
+    desc: 'Print the local install hint, unless the CLI already installed dependencies'
     status:
       # Skip when `lk agent init --install` already ran the install task.
       - test -n "$LIVEKIT_DEPS_INSTALLED"
@@ -34,7 +34,7 @@ tasks:
       - echo '{{ indent .INDENT "pnpm install" }}'
 
   set_agent_name_if_present:
-    desc: "When LIVEKIT_AGENT_NAME is set, configure the agent to use it on init"
+    desc: 'When LIVEKIT_AGENT_NAME is set, configure the agent to use it on init'
     status:
       - test -z "$LIVEKIT_AGENT_NAME"
     cmds:
@@ -52,7 +52,7 @@ tasks:
     status:
       - test -z "$LIVEKIT_AGENT_NAME"
     vars:
-      CONSOLE_URL: "https://cloud.livekit.io/projects/p_/agents/console"
+      CONSOLE_URL: 'https://cloud.livekit.io/projects/p_/agents/console'
       CONSOLE_LINK: '{{ print "\x1b]8;;" .CONSOLE_URL "/?autoStart=true&agentName=" .LIVEKIT_AGENT_NAME "\x1b\\\x1b[36;4m" .CONSOLE_URL "/?autoStart=true&agentName=" .LIVEKIT_AGENT_NAME "\x1b[0m\x1b]8;;\x1b\\" }}'
     cmds:
       - echo 'Then open the web console:'
@@ -61,7 +61,7 @@ tasks:
       - echo ''
 
   help_open_sandbox_if_present:
-    desc: "When LIVEKIT_SANDBOX_ID is set, print the URL to open it"
+    desc: 'When LIVEKIT_SANDBOX_ID is set, print the URL to open it'
     status:
       - test -z "$LIVEKIT_SANDBOX_ID"
     vars:
@@ -73,8 +73,7 @@ tasks:
       - echo '{{ indent .INDENT .SANDBOX_LINK }}'
       - echo ''
 
-
   install:
-    desc: "Bootstrap application for local development"
+    desc: 'Bootstrap application for local development'
     cmds:
-      - "pnpm install"
+      - 'pnpm install'
