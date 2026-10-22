@@ -17,17 +17,17 @@ The project combines speech recognition, a large language model, and text-to-spe
 
 ## Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| TypeScript | Agent development |
-| LiveKit Agents | Voice-agent framework |
-| LiveKit Cloud | Real-time communication infrastructure |
-| AssemblyAI | Speech recognition |
-| DeepSeek | Language model |
-| Fish Audio | Speech generation |
-| Ai-coustics | Audio enhancement |
-| Vitest | Automated tests |
-| GitHub Actions | Continuous integration |
+| Technology     | Purpose                                |
+| -------------- | -------------------------------------- |
+| TypeScript     | Agent development                      |
+| LiveKit Agents | Voice-agent framework                  |
+| LiveKit Cloud  | Real-time communication infrastructure |
+| AssemblyAI     | Speech recognition                     |
+| DeepSeek       | Language model                         |
+| Fish Audio     | Speech generation                      |
+| Ai-coustics    | Audio enhancement                      |
+| Vitest         | Automated tests                        |
+| GitHub Actions | Continuous integration                 |
 
 ## Architecture
 
