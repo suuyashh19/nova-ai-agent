@@ -1,30 +1,28 @@
-
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { createAgent } from './agent';
+
 const { mockAgentCreate, mockLLM } = vi.hoisted(() => ({
   mockAgentCreate: vi.fn(function (config) {
     return config;
   }),
-  mockLLM: vi.fn(class {
-    constructor(config) {
-      return config;
-    }
-  }),
+  mockLLM: vi.fn(
+    class {
+      constructor(config) {
+        return config;
+      }
+    },
+  ),
 }));
 vi.mock('@livekit/agents', () => ({
   Agent: {
     create: mockAgentCreate,
   },
   dedent: (strings: TemplateStringsArray, ...values: unknown[]) =>
-    strings.reduce(
-      (result, part, index) => result + part + (values[index] ?? ''),
-      '',
-    ),
+    strings.reduce((result, part, index) => result + part + (values[index] ?? ''), ''),
   inference: {
     LLM: mockLLM,
   },
 }));
-
-import { createAgent } from './agent';
 
 describe('Nova AI agent', () => {
   beforeEach(() => {
